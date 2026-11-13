@@ -6,7 +6,7 @@ clock = pygame.time.Clock()
 
 window = pygame.display.set_mode((800, 600))
 window.fill((100,100,100))
-pygame.display.set_caption("HALLO!")
+pygame.display.set_caption("PYTHON")
 
 player = pygame.surface.Surface((40, 40))
 player.fill((25, 250, 60))
@@ -45,13 +45,24 @@ while True:
                     player_vel_y = 40
                     player_vel_x = 0
 
-        if player_x == fruit_x and player_y == fruit_y:
-            fruitCollected = True
+    if player_x == fruit_x and player_y == fruit_y:
+        fruitCollected = True
 
-        if fruitCollected: 
-            fruit_x = random.randint(0, 19) * 40
-            fruit_y = random.randint(0, 14) * 40
-            fruitCollected = False
+    if fruitCollected: 
+        fruit_x = random.randint(0, 19) * 40
+        fruit_y = random.randint(0, 14) * 40
+        fruitCollected = False
+
+    if player_x <= 0:
+        player_x = 800
+    if player_x >= 800:
+        player_x = 0
+    if player_y <= 0:
+        player_y = 600
+    if player_y >= 600:
+        player_y = 0
+
+
 
     window.fill((100,25,100))
     player_x += player_vel_x
